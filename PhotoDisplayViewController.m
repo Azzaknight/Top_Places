@@ -36,11 +36,19 @@
     self.imageView.image = photoimage;
     self.imageView.frame = CGRectMake(0,0,self.imageView.image.size.width, self.imageView.image.size.height);
     self.scrollView.contentSize = self.imageView.image.size;
-    [self.scrollView zoomToRect:self.imageView.bounds animated:YES];
+    
+    self.title = self.photo[FLICKR_PHOTO_TITLE];
+    if ([self.title isEqualToString:@""] ) self.title = @"Unknown";
     
     UIEdgeInsets edgetInsets = UIEdgeInsetsMake(20,20,20,20);
     self.scrollView.scrollIndicatorInsets = edgetInsets;
-    
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    CGFloat heightRatio = self.view.bounds.size.height / self.imageView.image.size.height;
+    CGFloat widthRation = self.view.bounds.size.width / self.imageView.image.size.width;
+    self.scrollView.zoomScale = MAX(heightRatio, widthRation);
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,6 +63,7 @@
 {
     return self.imageView;
 }
+
 
 
 /*

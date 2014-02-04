@@ -1,20 +1,20 @@
 //
-//  PhotosTableViewController.m
+//  RecentPhotosTableViewController.m
 //  TopPlaces
 //
-//  Created by Pamamarch on 29/01/2014.
+//  Created by Pamamarch on 01/02/2014.
 //  Copyright (c) 2014 Finger Flick Games. All rights reserved.
 //
 
-#import "PhotosTableViewController.h"
+#import "RecentPhotosTableViewController.h"
 #import "FlickrFetcher.h"
 #import "PhotoDisplayViewController.h"
 
-@interface PhotosTableViewController ()
+@interface RecentPhotosTableViewController ()
 
 @end
 
-@implementation PhotosTableViewController
+@implementation RecentPhotosTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -34,20 +34,24 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
     
-    self.data = [FlickrFetcher photosInPlace:self.place maxResults:50];
-    //NSLog(@"The results if %@",self.data);
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.data = [defaults objectForKey:@"Top_Places_Recents"];
+    NSLog(@"The number of items are %d", [self.data count]);
+    [self.tableView reloadData];
     
 }
+
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-#pragma mark - Helper Methods
-
 
 #pragma mark - Table view data source
 
@@ -61,14 +65,11 @@
 */
 
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Photos" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Recents" forIndexPath:indexPath];
     
-    if(!cell){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Photos"];
-    }
     // Configure the cell...
     NSDictionary * photoDetails = self.data[indexPath.row];
     NSString* title;
@@ -92,12 +93,11 @@
     {
         detail = @"Unknown";
     }
-
+    
     cell.textLabel.text = title;
     cell.detailTextLabel.text = detail;
     return cell;
 }
-
 
 /*
 // Override to support conditional editing of the table view.
@@ -148,28 +148,7 @@
     PhotoDisplayViewController *dest = segue.destinationViewController;
     NSDictionary *photo = self.data[self.tableView.indexPathForSelectedRow.row];
     [dest setPhoto:photo];
-    
-    // also can I do the NSUserDefaults here instead?
-    // get the User Defaults
-    
-    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
-    NSMutableArray *recent = [[defaults objectForKey:@"Top_Places_Recents" ] mutableCopy];
-    if(!recent) recent = [NSMutableArray array];
-    
-    for (NSDictionary* photos in recent) {
-        if(photos[@"id"] == photo[@"id"])
-        {
-            [recent removeObject:photos];
-            break;
-        }
-    }
-    
-    if (recent.count == 20) [recent removeLastObject];
-    [recent insertObject:photo atIndex:0];
-    [defaults setObject:recent forKey:@"Top_Places_Recents"];
-    [defaults synchronize];
-    
-    
+ 
 }
 
 
