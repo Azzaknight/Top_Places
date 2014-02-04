@@ -41,7 +41,6 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.data = [defaults objectForKey:@"Top_Places_Recents"];
-    NSLog(@"The number of items are %d", [self.data count]);
     [self.tableView reloadData];
     
 }

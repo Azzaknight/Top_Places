@@ -27,28 +27,51 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.scrollView.delegate = self;
+    
+    
     // Do any additional setup after loading the view.
-    NSURL *url = [FlickrFetcher urlForPhoto:self.photo format:FlickrPhotoFormatLarge];
-    NSData * photoData = [NSData dataWithContentsOfURL:url];
-    UIImage * photoimage = [UIImage imageWithData:photoData];
+    UIActivityIndicatorView * indicator_view = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [indicator_view startAnimating];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:indicator_view];
+
+    dispatch_queue_t download_queue = dispatch_queue_create("Download Photo", NULL);
+    dispatch_async(download_queue, ^{
+        
+        NSURL *url = [FlickrFetcher urlForPhoto:self.photo format:FlickrPhotoFormatLarge];
+        NSData * photoData = [NSData dataWithContentsOfURL:url];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            self.scrollView.delegate = self;
+            
+            UIImage * photoimage = [UIImage imageWithData:photoData];
+            self.imageView.image = photoimage;
+            self.imageView.frame = CGRectMake(0,0,self.imageView.image.size.width, self.imageView.image.size.height);
+            self.scrollView.contentSize = self.imageView.image.size;
+            
+            self.title = self.photo[FLICKR_PHOTO_TITLE];
+            if ([self.title isEqualToString:@""] ) self.title = @"Unknown";
+            
+            self.navigationItem.rightBarButtonItem = nil;
+            [self viewWillAppear:YES];
+            
+        });
+        
+        
+        
+    });
     
-    self.imageView.image = photoimage;
-    self.imageView.frame = CGRectMake(0,0,self.imageView.image.size.width, self.imageView.image.size.height);
-    self.scrollView.contentSize = self.imageView.image.size;
-    
-    self.title = self.photo[FLICKR_PHOTO_TITLE];
-    if ([self.title isEqualToString:@""] ) self.title = @"Unknown";
-    
-    UIEdgeInsets edgetInsets = UIEdgeInsetsMake(20,20,20,20);
-    self.scrollView.scrollIndicatorInsets = edgetInsets;
+   
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    CGFloat heightRatio = self.view.bounds.size.height / self.imageView.image.size.height;
-    CGFloat widthRation = self.view.bounds.size.width / self.imageView.image.size.width;
-    self.scrollView.zoomScale = MAX(heightRatio, widthRation);
+        CGFloat heightRatio = self.view.bounds.size.height / self.imageView.image.size.height;
+        CGFloat widthRation = self.view.bounds.size.width / self.imageView.image.size.width;
+        self.scrollView.zoomScale = MAX(heightRatio, widthRation);
+    
+        UIEdgeInsets edgetInsets = UIEdgeInsetsMake(20,20,20,20);
+        self.scrollView.scrollIndicatorInsets = edgetInsets;
 }
 
 - (void)didReceiveMemoryWarning

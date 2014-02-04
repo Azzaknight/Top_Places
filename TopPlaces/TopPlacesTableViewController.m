@@ -37,25 +37,31 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     //self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-//    dispatch_queue_t fetchData = dispatch_queue_create("Fetching Top Places", NULL);
-//    dispatch_async(fetchData, ^{
+    UIActivityIndicatorView * indicator_view = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [indicator_view startAnimating];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:indicator_view];
     
-    //self.data = [FlickrFetcher topPlaces];
+    dispatch_queue_t fetchData = dispatch_queue_create("Fetching Top Places", NULL);
+    dispatch_async(fetchData, ^{
+    
     NSArray *flickrFetch = [FlickrFetcher topPlaces];
-    //NSSortDescriptor *titleSortDescriptor = [[NSSortDescriptor alloc] initWithKey:FLICKR_PHOTO_TITLE ascending:YES];
     NSSortDescriptor *titleSortDescriptor = [[NSSortDescriptor alloc] initWithKey:FLICKR_PLACE_NAME ascending:YES selector:@selector(localizedStandardCompare:)];
     NSArray *sortdescriptor = @[titleSortDescriptor];
     flickrFetch = [flickrFetch sortedArrayUsingDescriptors:sortdescriptor];
     self.data = flickrFetch;
     
-//        NSLog(@"The results is %@",self.data);
-//        dispatch_async(dispatch_get_main_queue(), ^{
+        //NSLog(@"The results is %@",self.data);
+        dispatch_async(dispatch_get_main_queue(), ^{
     
-//            [self.tableView reloadData];
+            
+            
+            [self.tableView reloadData];
+            self.navigationItem.rightBarButtonItem = nil;
+            
     
-//        });
+        });
     
-//    });
+    });
 }
 
 - (void)didReceiveMemoryWarning

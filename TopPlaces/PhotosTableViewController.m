@@ -35,9 +35,26 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    self.data = [FlickrFetcher photosInPlace:self.place maxResults:50];
-    //NSLog(@"The results if %@",self.data);
+    UIActivityIndicatorView * indicator_view = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [indicator_view startAnimating];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:indicator_view];
+
     
+    dispatch_queue_t download_queue = dispatch_queue_create("Flickr Fetching Photos", NULL);
+    
+    dispatch_async(download_queue, ^{
+        
+        self.data = [FlickrFetcher photosInPlace:self.place maxResults:50];
+        //NSLog(@"The results if %@",self.data);
+        dispatch_async(dispatch_get_main_queue(), ^{
+           
+            //if([self.view window])
+            [self.tableView reloadData];
+            self.navigationItem.rightBarButtonItem = nil;
+            
+        });
+        
+    });
 }
 
 - (void)didReceiveMemoryWarning
@@ -156,10 +173,12 @@
     NSMutableArray *recent = [[defaults objectForKey:@"Top_Places_Recents" ] mutableCopy];
     if(!recent) recent = [NSMutableArray array];
     
-    for (NSDictionary* photos in recent) {
-        if(photos[@"id"] == photo[@"id"])
+    
+    for (int i = 0; i < [recent count]; i++) {
+        NSDictionary * recentPhoto = recent[i];
+        if([recentPhoto[@"id"] isEqualToString:photo[@"id"]])
         {
-            [recent removeObject:photos];
+            [recent removeObjectAtIndex:i];
             break;
         }
     }
