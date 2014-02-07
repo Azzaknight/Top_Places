@@ -155,24 +155,41 @@
 */
 
 
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    PhotoDisplayViewController *dest = segue.destinationViewController;
-    NSDictionary *photo = self.data[self.tableView.indexPathForSelectedRow.row];
-    [dest setPhoto:photo];
+    if(self.splitViewController)
+    {
+        
+        
+        id nvc = [self.splitViewController.viewControllers lastObject];
+        if(![nvc isKindOfClass:[UINavigationController class]]) nvc = nil;
+        
+        NSArray *controllers = [nvc viewControllers];
+        id hvc = controllers[0];
+        if(![hvc isKindOfClass:[PhotoDisplayViewController class]]) hvc = nil;
+        
+        NSDictionary *photo = self.data[indexPath.row];
+        
+        [self userSettingsForRecentPhotos:photo];
+        
+        [hvc setPhoto:photo];
+        
+        
+    }
     
-    // also can I do the NSUserDefaults here instead?
-    // get the User Defaults
     
+}
+
+
+
+#pragma mark - UserDefaults checking and setting
+
+-(void)userSettingsForRecentPhotos:(NSDictionary *)photo
+{
     NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
     NSMutableArray *recent = [[defaults objectForKey:@"Top_Places_Recents" ] mutableCopy];
-    if(!recent) recent = [NSMutableArray array];
     
+    if(!recent) recent = [NSMutableArray array];
     
     for (int i = 0; i < [recent count]; i++) {
         NSDictionary * recentPhoto = recent[i];
@@ -188,6 +205,28 @@
     [defaults setObject:recent forKey:@"Top_Places_Recents"];
     [defaults synchronize];
     
+}
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    
+    if ([segue.identifier isEqualToString: @"Display_Photos"])
+    {
+        PhotoDisplayViewController *dest = segue.destinationViewController;
+        NSDictionary *photo = self.data[self.tableView.indexPathForSelectedRow.row];
+        [dest setPhoto:photo];
+        
+        // also can I do the NSUserDefaults here instead?
+        // get the User Defaults
+        
+        [self userSettingsForRecentPhotos:photo];
+        
+    }
     
 }
 

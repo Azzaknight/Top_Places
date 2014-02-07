@@ -9,6 +9,7 @@
 #import "RecentPhotosTableViewController.h"
 #import "FlickrFetcher.h"
 #import "PhotoDisplayViewController.h"
+#import "SecondPhotoDisplayViewController.h"
 
 @interface RecentPhotosTableViewController ()
 
@@ -98,6 +99,25 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(self.splitViewController)
+    {
+        id nvc = [self.splitViewController.viewControllers lastObject];
+        if(![nvc isKindOfClass:[UINavigationController class]]) nvc = nil;
+        
+        NSArray *controllers = [nvc viewControllers];
+        id hvc = controllers[0];
+        if(![hvc isKindOfClass:[PhotoDisplayViewController class]]) hvc = nil;
+        
+        NSDictionary *photo = self.data[indexPath.row];
+        [hvc setPhoto:photo];
+    }
+    
+    
+}
+
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -144,9 +164,14 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    PhotoDisplayViewController *dest = segue.destinationViewController;
-    NSDictionary *photo = self.data[self.tableView.indexPathForSelectedRow.row];
-    [dest setPhoto:photo];
+    if([segue.destinationViewController isKindOfClass:[SecondPhotoDisplayViewController class]])
+    {
+        SecondPhotoDisplayViewController *dest = segue.destinationViewController;
+        NSDictionary *photo = self.data[self.tableView.indexPathForSelectedRow.row];
+        [dest setPhoto:photo];
+        
+    }
+    
  
 }
 

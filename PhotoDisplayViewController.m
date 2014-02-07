@@ -24,16 +24,25 @@
     return self;
 }
 
-- (void)viewDidLoad
+-(void)setPhoto:(NSDictionary *)photo
 {
-    [super viewDidLoad];
-    
-    
-    // Do any additional setup after loading the view.
-    UIActivityIndicatorView * indicator_view = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    [indicator_view startAnimating];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:indicator_view];
+    if(photo != _photo)
+    {
+        _photo = photo;
+        [self loadPhoto];
+    }
+}
 
+-(void)loadPhoto
+{
+    
+    //if(!self.splitViewController)
+    //{
+        UIActivityIndicatorView * indicator_view = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [indicator_view startAnimating];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:indicator_view];
+    //}
+    
     dispatch_queue_t download_queue = dispatch_queue_create("Download Photo", NULL);
     dispatch_async(download_queue, ^{
         
@@ -52,26 +61,48 @@
             self.title = self.photo[FLICKR_PHOTO_TITLE];
             if ([self.title isEqualToString:@""] ) self.title = @"Unknown";
             
-            self.navigationItem.rightBarButtonItem = nil;
+            //if(!self.splitViewController)
+            //{
+                self.navigationItem.rightBarButtonItem = nil;
+            //}
+            
             [self viewWillAppear:YES];
             
         });
         
-        
-        
     });
+}
+
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    //[self loadPhoto];
     
-   
+
+}
+
+-(void)viewWillLayoutSubviews
+{
+    NSLog(@"I am called when I rotate");
+    CGFloat heightRatio = self.view.bounds.size.height / self.imageView.image.size.height;
+    CGFloat widthRation = self.view.bounds.size.width / self.imageView.image.size.width;
+    self.scrollView.zoomScale = MAX(heightRatio, widthRation);
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    
+    //if(!self.splitViewController)
+    //{
         CGFloat heightRatio = self.view.bounds.size.height / self.imageView.image.size.height;
         CGFloat widthRation = self.view.bounds.size.width / self.imageView.image.size.width;
         self.scrollView.zoomScale = MAX(heightRatio, widthRation);
-    
-        UIEdgeInsets edgetInsets = UIEdgeInsetsMake(20,20,20,20);
-        self.scrollView.scrollIndicatorInsets = edgetInsets;
+    //}
+
+    UIEdgeInsets edgetInsets = UIEdgeInsetsMake(20,20,60,20);
+    self.scrollView.scrollIndicatorInsets = edgetInsets;
 }
 
 - (void)didReceiveMemoryWarning

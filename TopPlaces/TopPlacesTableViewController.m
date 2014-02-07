@@ -52,13 +52,10 @@
     
         //NSLog(@"The results is %@",self.data);
         dispatch_async(dispatch_get_main_queue(), ^{
-    
-            
             
             [self.tableView reloadData];
             self.navigationItem.rightBarButtonItem = nil;
             
-    
         });
     
     });
