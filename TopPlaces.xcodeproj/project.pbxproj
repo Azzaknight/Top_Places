@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		AC0B8E3818A7A6760097AAD1 /* PhotoDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0B8E3718A7A6760097AAD1 /* PhotoDisplayViewController.m */; };
-		AC11D2E9189963B0002F4C46 /* PhotoDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC11D2E8189963B0002F4C46 /* PhotoDisplayViewController.m */; };
 		AC47D217189D00C800212D23 /* RecentPhotosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC47D216189D00C800212D23 /* RecentPhotosTableViewController.m */; };
 		ACD8E8D51897BBE900834EE1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD8E8D41897BBE900834EE1 /* Foundation.framework */; };
 		ACD8E8D71897BBE900834EE1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD8E8D61897BBE900834EE1 /* CoreGraphics.framework */; };
@@ -43,8 +42,6 @@
 /* Begin PBXFileReference section */
 		AC0B8E3618A7A6760097AAD1 /* PhotoDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoDisplayViewController.h; sourceTree = "<group>"; };
 		AC0B8E3718A7A6760097AAD1 /* PhotoDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoDisplayViewController.m; sourceTree = "<group>"; };
-		AC11D2E7189963B0002F4C46 /* PhotoDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoDisplayViewController.h; path = ../PhotoDisplayViewController.h; sourceTree = "<group>"; };
-		AC11D2E8189963B0002F4C46 /* PhotoDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoDisplayViewController.m; path = /Users/pamamarch/Developer/TopPlaces/TopPlaces/../PhotoDisplayViewController.m; sourceTree = "<absolute>"; };
 		AC47D215189D00C800212D23 /* RecentPhotosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentPhotosTableViewController.h; sourceTree = "<group>"; };
 		AC47D216189D00C800212D23 /* RecentPhotosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentPhotosTableViewController.m; sourceTree = "<group>"; };
 		ACD8E8D11897BBE900834EE1 /* TopPlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopPlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,12 +135,10 @@
 				ACD8E90D1897BD1100834EE1 /* FlickrFetcher.h */,
 				ACD8E8E91897BBE900834EE1 /* Main_iPad.storyboard */,
 				ACD8E8E61897BBE900834EE1 /* Main_iPhone.storyboard */,
-				AC47D215189D00C800212D23 /* RecentPhotosTableViewController.h */,
 				AC0B8E3618A7A6760097AAD1 /* PhotoDisplayViewController.h */,
 				AC0B8E3718A7A6760097AAD1 /* PhotoDisplayViewController.m */,
+				AC47D215189D00C800212D23 /* RecentPhotosTableViewController.h */,
 				AC47D216189D00C800212D23 /* RecentPhotosTableViewController.m */,
-				AC11D2E7189963B0002F4C46 /* PhotoDisplayViewController.h */,
-				AC11D2E8189963B0002F4C46 /* PhotoDisplayViewController.m */,
 				ACD8E916189829A900834EE1 /* PhotosTableViewController.h */,
 				ACD8E917189829A900834EE1 /* PhotosTableViewController.m */,
 				ACD8E9101897C16200834EE1 /* TopPlacesTableViewController.h */,
@@ -285,7 +280,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC11D2E9189963B0002F4C46 /* PhotoDisplayViewController.m in Sources */,
 				ACD8E9121897C16200834EE1 /* TopPlacesTableViewController.m in Sources */,
 				AC0B8E3818A7A6760097AAD1 /* PhotoDisplayViewController.m in Sources */,
 				ACD8E91518981B4100834EE1 /* DataTableViewController.m in Sources */,
