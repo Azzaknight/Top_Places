@@ -9,12 +9,12 @@
             <objects>
                 <tableViewController id="O0M-9x-huD" customClass="TopPlacesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" restorationIdentifier="Top Places" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="DT6-ba-EK8">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="top_Places" textLabel="Xtf-kw-TLv" detailTextLabel="dog-Tz-grZ" style="IBUITableViewCellStyleSubtitle" id="PuU-Ow-yzp">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PuU-Ow-yzp" id="9F0-TV-abB">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -69,7 +69,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="gzu-Fo-lKW" kind="push" identifier="second" id="v00-2V-fTu"/>
+                                    <segue destination="Rng-cj-nfm" kind="push" id="1ZE-FX-zXe"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -82,53 +82,53 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yyf-5q-TSS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="887" y="-939"/>
+            <point key="canvasLocation" x="356" y="-955"/>
         </scene>
-        <!--Second Photo Display View Controller-->
-        <scene sceneID="1tn-G8-4OI">
+        <!--Photo Display View Controller-->
+        <scene sceneID="MRh-V0-X1u">
             <objects>
-                <viewController id="gzu-Fo-lKW" customClass="SecondPhotoDisplayViewController" sceneMemberID="viewController">
+                <viewController id="Rng-cj-nfm" customClass="PhotoDisplayViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="thh-ew-f3H"/>
-                        <viewControllerLayoutGuide type="bottom" id="xPx-X2-RbR"/>
+                        <viewControllerLayoutGuide type="top" id="O9N-ec-BnF"/>
+                        <viewControllerLayoutGuide type="bottom" id="cGS-jb-Gnu"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="BdJ-1z-Bwj">
+                    <view key="view" contentMode="scaleToFill" id="Yiw-Yz-O2Y">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.20000000000000001" maximumZoomScale="5" translatesAutoresizingMaskIntoConstraints="NO" id="f7o-6D-yQa">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.20000000000000001" maximumZoomScale="5" translatesAutoresizingMaskIntoConstraints="NO" id="6j5-K4-kxn">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="f7o-6D-yQa" firstAttribute="leading" secondItem="BdJ-1z-Bwj" secondAttribute="leading" id="5am-lB-3Vt"/>
-                            <constraint firstAttribute="trailing" secondItem="f7o-6D-yQa" secondAttribute="trailing" id="JzL-Sk-t6g"/>
-                            <constraint firstItem="f7o-6D-yQa" firstAttribute="top" secondItem="BdJ-1z-Bwj" secondAttribute="top" id="vMa-tE-crM"/>
-                            <constraint firstAttribute="bottom" secondItem="f7o-6D-yQa" secondAttribute="bottom" id="ysL-Of-sLq"/>
+                            <constraint firstAttribute="trailing" secondItem="6j5-K4-kxn" secondAttribute="trailing" id="1HQ-da-Go2"/>
+                            <constraint firstItem="6j5-K4-kxn" firstAttribute="leading" secondItem="Yiw-Yz-O2Y" secondAttribute="leading" id="OQV-qX-4nC"/>
+                            <constraint firstAttribute="bottom" secondItem="6j5-K4-kxn" secondAttribute="bottom" id="POb-zb-DeH"/>
+                            <constraint firstItem="6j5-K4-kxn" firstAttribute="top" secondItem="Yiw-Yz-O2Y" secondAttribute="top" id="YLh-Qk-jiO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="0Ff-pD-YF3"/>
+                    <navigationItem key="navigationItem" id="BZQ-mN-LxF"/>
                     <connections>
-                        <outlet property="scrollView" destination="f7o-6D-yQa" id="df4-jq-AyW"/>
+                        <outlet property="scrollView" destination="6j5-K4-kxn" id="4xS-WF-hbg"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7KB-tS-QdQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FXJ-Sk-WrJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1445" y="-929"/>
+            <point key="canvasLocation" x="809" y="-955"/>
         </scene>
         <!--Photos Table View Controller - Photos-->
         <scene sceneID="sD3-Pl-Izk">
             <objects>
                 <tableViewController id="8g0-aq-9Lo" customClass="PhotosTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="96B-OU-0xC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Photos" textLabel="4bq-J6-8md" detailTextLabel="plA-D3-qvY" style="IBUITableViewCellStyleSubtitle" id="zcn-tK-nCl">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zcn-tK-nCl" id="ukv-Ke-ADH">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -151,7 +151,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="Bgb-Mo-VHs" kind="push" identifier="Display_Photos" id="Umc-mg-kU2"/>
+                                    <segue destination="DZK-NL-Eq3" kind="push" identifier="Display_Photos" id="2ec-na-Vlg"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -164,42 +164,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T2a-Qb-bA6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="761" y="-1708"/>
-        </scene>
-        <!--Photo Display View Controller-->
-        <scene sceneID="zm1-6H-Jeb">
-            <objects>
-                <viewController id="Bgb-Mo-VHs" customClass="PhotoDisplayViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Xn7-pV-haf"/>
-                        <viewControllerLayoutGuide type="bottom" id="9K4-au-6OJ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="RXm-Vg-31P">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.20000000000000001" maximumZoomScale="5" translatesAutoresizingMaskIntoConstraints="NO" id="GnX-C0-fcs">
-                                <rect key="frame" x="-20" y="-20" width="360" height="559"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Leb-6W-2gb">
-                                        <rect key="frame" x="20" y="20" width="320" height="519"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    </imageView>
-                                </subviews>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="lxu-Zz-HD8"/>
-                    <connections>
-                        <outlet property="imageView" destination="Leb-6W-2gb" id="XAg-nS-WFu"/>
-                        <outlet property="scrollView" destination="GnX-C0-fcs" id="U8l-m9-s1A"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rtj-Mm-49p" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1247" y="-1708"/>
+            <point key="canvasLocation" x="809" y="-1712"/>
         </scene>
         <!--Navigation Controller - Top Places-->
         <scene sceneID="ZJW-6o-2wp">
@@ -207,7 +172,8 @@
                 <navigationController title="Top Places" automaticallyAdjustsScrollViewInsets="NO" id="0Oy-OK-WFq" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="featured" id="JGm-Gn-peL"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BwZ-YF-Shk">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="BwZ-YF-Shk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -225,7 +191,7 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="0s5-ka-zXY" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="Sj0-W9-TV4">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -258,7 +224,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QPP-gj-6Cr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="361" y="-939"/>
+            <point key="canvasLocation" x="-110" y="-955"/>
         </scene>
         <!--Photo Display View Controller-->
         <scene sceneID="ezJ-hE-YSS">
@@ -269,31 +235,30 @@
                         <viewControllerLayoutGuide type="bottom" id="278-D3-FEz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jjx-FN-FRN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.20000000298023224" maximumZoomScale="5" translatesAutoresizingMaskIntoConstraints="NO" id="mlg-xS-h47">
-                                <rect key="frame" x="-20" y="-20" width="360" height="608"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.20000000000000001" maximumZoomScale="5" translatesAutoresizingMaskIntoConstraints="NO" id="6nz-TQ-H55">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="is6-3O-4P5">
-                                        <rect key="frame" x="20" y="20" width="320" height="568"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    </imageView>
-                                </subviews>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6nz-TQ-H55" firstAttribute="leading" secondItem="jjx-FN-FRN" secondAttribute="leading" id="1ak-4W-oQd"/>
+                            <constraint firstAttribute="bottom" secondItem="6nz-TQ-H55" secondAttribute="bottom" id="3O0-fr-Z2p"/>
+                            <constraint firstAttribute="trailing" secondItem="6nz-TQ-H55" secondAttribute="trailing" id="S8z-bx-KEz"/>
+                            <constraint firstItem="6nz-TQ-H55" firstAttribute="top" secondItem="jjx-FN-FRN" secondAttribute="top" id="XOd-Ik-fzV"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MFJ-4H-aQF"/>
                     <connections>
-                        <outlet property="imageView" destination="is6-3O-4P5" id="7H0-Yy-ulM"/>
-                        <outlet property="scrollView" destination="mlg-xS-h47" id="5Gx-zY-Ewh"/>
+                        <outlet property="scrollView" destination="6nz-TQ-H55" id="03Z-W2-SbJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6fR-dN-PU2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2031" y="-533"/>
+            <point key="canvasLocation" x="1251" y="-1712"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

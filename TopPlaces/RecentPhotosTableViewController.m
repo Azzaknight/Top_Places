@@ -9,7 +9,6 @@
 #import "RecentPhotosTableViewController.h"
 #import "FlickrFetcher.h"
 #import "PhotoDisplayViewController.h"
-#import "SecondPhotoDisplayViewController.h"
 
 @interface RecentPhotosTableViewController ()
 
@@ -164,9 +163,9 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if([segue.destinationViewController isKindOfClass:[SecondPhotoDisplayViewController class]])
+    if([segue.destinationViewController isKindOfClass:[PhotoDisplayViewController class]])
     {
-        SecondPhotoDisplayViewController *dest = segue.destinationViewController;
+        PhotoDisplayViewController *dest = (PhotoDisplayViewController *) segue.destinationViewController;
         NSDictionary *photo = self.data[self.tableView.indexPathForSelectedRow.row];
         [dest setPhoto:photo];
         

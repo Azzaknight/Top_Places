@@ -27,7 +27,6 @@
 		ACD8E9121897C16200834EE1 /* TopPlacesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD8E9111897C16200834EE1 /* TopPlacesTableViewController.m */; };
 		ACD8E91518981B4100834EE1 /* DataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD8E91418981B4100834EE1 /* DataTableViewController.m */; };
 		ACD8E918189829A900834EE1 /* PhotosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD8E917189829A900834EE1 /* PhotosTableViewController.m */; };
-		ACFF45F218A4E7EE00CB2E72 /* SecondPhotoDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF45F118A4E7EE00CB2E72 /* SecondPhotoDisplayViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,8 +71,6 @@
 		ACD8E91418981B4100834EE1 /* DataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataTableViewController.m; sourceTree = "<group>"; };
 		ACD8E916189829A900834EE1 /* PhotosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosTableViewController.h; sourceTree = "<group>"; };
 		ACD8E917189829A900834EE1 /* PhotosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosTableViewController.m; sourceTree = "<group>"; };
-		ACFF45F018A4E7EE00CB2E72 /* SecondPhotoDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondPhotoDisplayViewController.h; sourceTree = "<group>"; };
-		ACFF45F118A4E7EE00CB2E72 /* SecondPhotoDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondPhotoDisplayViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,17 +130,15 @@
 		ACD8E8DA1897BBE900834EE1 /* TopPlaces */ = {
 			isa = PBXGroup;
 			children = (
-				ACD8E90D1897BD1100834EE1 /* FlickrFetcher.h */,
 				ACD8E90E1897BD1100834EE1 /* FlickrFetcher.m */,
 				ACD8E90C1897BD1100834EE1 /* FlickrAPIKey.h */,
+				ACD8E90D1897BD1100834EE1 /* FlickrFetcher.h */,
 				ACD8E8E91897BBE900834EE1 /* Main_iPad.storyboard */,
 				ACD8E8E61897BBE900834EE1 /* Main_iPhone.storyboard */,
 				AC47D215189D00C800212D23 /* RecentPhotosTableViewController.h */,
 				AC47D216189D00C800212D23 /* RecentPhotosTableViewController.m */,
 				AC11D2E7189963B0002F4C46 /* PhotoDisplayViewController.h */,
 				AC11D2E8189963B0002F4C46 /* PhotoDisplayViewController.m */,
-				ACFF45F018A4E7EE00CB2E72 /* SecondPhotoDisplayViewController.h */,
-				ACFF45F118A4E7EE00CB2E72 /* SecondPhotoDisplayViewController.m */,
 				ACD8E916189829A900834EE1 /* PhotosTableViewController.h */,
 				ACD8E917189829A900834EE1 /* PhotosTableViewController.m */,
 				ACD8E9101897C16200834EE1 /* TopPlacesTableViewController.h */,
@@ -290,7 +285,6 @@
 				ACD8E91518981B4100834EE1 /* DataTableViewController.m in Sources */,
 				AC47D217189D00C800212D23 /* RecentPhotosTableViewController.m in Sources */,
 				ACD8E918189829A900834EE1 /* PhotosTableViewController.m in Sources */,
-				ACFF45F218A4E7EE00CB2E72 /* SecondPhotoDisplayViewController.m in Sources */,
 				ACD8E8E51897BBE900834EE1 /* AppDelegate.m in Sources */,
 				ACD8E90F1897BD1100834EE1 /* FlickrFetcher.m in Sources */,
 				ACD8E8E11897BBE900834EE1 /* main.m in Sources */,

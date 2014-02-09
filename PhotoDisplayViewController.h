@@ -10,8 +10,6 @@
 
 @interface PhotoDisplayViewController : UIViewController
 
-@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
-@property  (nonatomic, weak) IBOutlet UIImageView *imageView;
 @property  (nonatomic, strong) NSDictionary * photo;
 
 @end
