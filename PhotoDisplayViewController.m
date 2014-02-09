@@ -162,19 +162,8 @@
 
 -(void)splitViewController:(UISplitViewController *)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
 {
-    NSArray *controllers = self.tabBarController.viewControllers;
-    for (int i=0; i< [controllers count]; i++) {
-        if([controllers[i] isKindOfClass:[UISplitViewController class]])
-        {
-            UISplitViewController * controller = controllers[i];
-            UINavigationController * nvc = controller.viewControllers[1];
-            UIViewController * dvc = nvc.viewControllers[0];
-            dvc.navigationItem.leftBarButtonItem = nil;
-            
-        }
-        
-    }
     
+    self.navigationItem.leftBarButtonItem = nil;
 }
 
 
